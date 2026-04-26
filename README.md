@@ -17,6 +17,7 @@
 | 주차 | 핵심 주제 (Topic) | 주요 구현 내용 | 링크 (Link) |
 | :---: | :--- | :--- | :---: |
 | **Week 03** | **Digital_Image_Files** | BMP 바이너리 구조 분석, 영상 밝기 조절 및 반전 | [📂 Go](Week03_Digital_Image_Files/) |
+| **Week 04** | **Histogram & Binarization** | 히스토그램 평활화/스트레칭, Gonzalez-Woods 자동 임계값 결정 | [📂 Go](Week04_Histogram_And_Binarization/) |
 
 *(강의 진행에 따라 매주 업데이트됩니다.)*
 
