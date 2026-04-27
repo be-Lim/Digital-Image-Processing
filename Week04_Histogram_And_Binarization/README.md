@@ -41,12 +41,12 @@
 ## 5. 실행 결과 (Visual Results)
 | 원본영상 | 영상반전 | 밝기조절+클리핑 | 대비조절+클리핑 |
 | :---: | :---: | :---: | :---: |
-| [LENNA.bmp](https://github.com/user-attachments/files/27096382/LENNA.bmp) | [output_inverse.bmp](https://github.com/user-attachments/files/27096355/output_inverse.bmp) | [output_brightness.bmp](https://github.com/user-attachments/files/27096357/output_brightness.bmp) | [output_contrast.bmp](https://github.com/user-attachments/files/27096359/output_contrast.bmp) |
+| ![LENNA.bmp](https://github.com/user-attachments/files/27096382/LENNA.bmp) | ![output_inverse.bmp](https://github.com/user-attachments/files/27096355/output_inverse.bmp) | ![output_brightness.bmp](https://github.com/user-attachments/files/27096357/output_brightness.bmp) | ![output_contrast.bmp](https://github.com/user-attachments/files/27096359/output_contrast.bmp) |
 
 
 | 원본영상 | 스트레칭 | 평활화 | 자동 이진화 |
 | :---: | :---: | :---: | :---: |
-| [coin.bmp](https://github.com/user-attachments/files/27096387/coin.bmp) | [output_stretch.bmp](https://github.com/user-attachments/files/27096334/output_stretch.bmp) | [output_equalization.bmp](https://github.com/user-attachments/files/27096337/output_equalization.bmp) | [output_binarization.bmp](https://github.com/user-attachments/files/27096340/output_binarization.bmp) |
+| ![coin.bmp](https://github.com/user-attachments/files/27096387/coin.bmp) | ![output_stretch.bmp](https://github.com/user-attachments/files/27096334/output_stretch.bmp) | ![output_equalization.bmp](https://github.com/user-attachments/files/27096337/output_equalization.bmp) | ![output_binarization.bmp](https://github.com/user-attachments/files/27096340/output_binarization.bmp) |
 
 ---
 
