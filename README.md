@@ -19,6 +19,7 @@
 | **Week 03** | **Digital_Image_Files** | BMP 바이너리 구조 분석, 영상 밝기 조절 및 반전 | [📂 Go](Week03_Digital_Image_Files/) |
 | **Week 04** | **Histogram & Binarization** | 히스토그램 평활화/스트레칭, Gonzalez-Woods 자동 임계값 결정 | [📂 Go](Week04_Histogram_And_Binarization/) |
 | **Week 05** | **Spatial Filtering** | 2차원 컨볼루션, LPF/HPF 구현 및 자동 이진화 파이프라인 통합 | [📂 Go](Week05_Spatial_Filtering/) |
+| **Week 06** | **Image Restoration** | 임펄스/가우시안 노이즈 모델 복원, Median 순서 통계 필터 구현 | [📂 Go](Week06_Image_Restoration/) |
 
 *(강의 진행에 따라 매주 업데이트됩니다.)*
 
