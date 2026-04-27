@@ -21,6 +21,7 @@
 ### 컨볼루션 연산 (4중 for문 구조)
 - 영상의 각 화소(y, x)를 순회하며 $3 \times 3$ 마스크 커널과 곱의 합(Sum of Products)을 계산합니다.
 - 계산된 결과값이 0~255 범위를 유지하도록 마스크 특성에 따라 절대값을 취하고 정규화(나누기) 연산을 수행합니다.
+- 마스크 연산 시 영상의 가장자리(Border) 영역을 처리하기 위해 여백(Margin)을 고려하여 인덱스를 제어하였습니다.
 
 ### 에지 검출 및 자동 이진화 파이프라인 결합
 에지 마스크(Prewitt, Sobel) 연산을 거친 영상(`Temp`)은 윤곽선의 강도 정보를 담고 있습니다. 이 정보를 이진화하여 명확한 선으로 만들기 위해 4주차 모듈을 재사용하여 파이프라인을 설계했습니다.
@@ -53,15 +54,15 @@ Binarization(Temp, Output, W, H, Th);
 
 | 박스 (LPF) | 가우시안 (LPF) |
 | :--- | :--- |
-| [output_average.bmp](https://github.com/user-attachments/files/27112302/output_average.bmp) | [output_gaussian.bmp](https://github.com/user-attachments/files/27112305/output_gaussian.bmp) |
+| ![output_average.bmp](https://github.com/user-attachments/files/27112302/output_average.bmp) | ![output_gaussian.bmp](https://github.com/user-attachments/files/27112305/output_gaussian.bmp) |
 
 | Prewitt X 에지 이진화 | 소벨 X 에지 이진화 | Prewitt Y 에지 이진화 | 소벨 Y 에지 이진화 | 통합 소벨 (X+Y) 이진화 |
 | :--- | :--- | :--- | :--- | :--- |
-| [output_prewitt_x.bmp](https://github.com/user-attachments/files/27112401/output_prewitt_x.bmp) | [output_sobel_x.bmp](https://github.com/user-attachments/files/27112407/output_sobel_x.bmp) | [output_prewitt_y.bmp](https://github.com/user-attachments/files/27112412/output_prewitt_y.bmp) | [output_sobel_y.bmp](https://github.com/user-attachments/files/27112430/output_sobel_y.bmp) | [output_sobel_xy.bmp](https://github.com/user-attachments/files/27112445/output_sobel_xy.bmp) |
+| ![output_prewitt_x.bmp](https://github.com/user-attachments/files/27112401/output_prewitt_x.bmp) | ![output_sobel_x.bmp](https://github.com/user-attachments/files/27112407/output_sobel_x.bmp) | ![output_prewitt_y.bmp](https://github.com/user-attachments/files/27112412/output_prewitt_y.bmp) | ![output_sobel_y.bmp](https://github.com/user-attachments/files/27112430/output_sobel_y.bmp) | ![output_sobel_xy.bmp](https://github.com/user-attachments/files/27112445/output_sobel_xy.bmp) |
 
 | 라플라시안 (HPF) | 라플라시안 DC (HBF) | 하이브리드 (LPF + HBF) |
 | :--- | :--- | :--- |
-| [output_laplace.bmp](https://github.com/user-attachments/files/27112469/output_laplace.bmp) | [output_laplace_dc.bmp](https://github.com/user-attachments/files/27112473/output_laplace_dc.bmp) | [output_lpf_hbf.bmp](https://github.com/user-attachments/files/27112476/output_lpf_hbf.bmp) |
+| ![output_laplace.bmp](https://github.com/user-attachments/files/27112469/output_laplace.bmp) | ![output_laplace_dc.bmp](https://github.com/user-attachments/files/27112473/output_laplace_dc.bmp) | ![output_lpf_hbf.bmp](https://github.com/user-attachments/files/27112476/output_lpf_hbf.bmp) |
 
 ---
 
