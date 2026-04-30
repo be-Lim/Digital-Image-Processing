@@ -20,6 +20,7 @@
 | **Week 04** | **Histogram & Binarization** | 히스토그램 평활화/스트레칭, Gonzalez-Woods 자동 임계값 결정 | [📂 Go](Week04_Histogram_And_Binarization/) |
 | **Week 05** | **Spatial Filtering** | 2차원 컨볼루션, LPF/HPF 구현 및 자동 이진화 파이프라인 통합 | [📂 Go](Week05_Spatial_Filtering/) |
 | **Week 06** | **Image Restoration** | 임펄스/가우시안 노이즈 모델 복원, Median 순서 통계 필터 구현 | [📂 Go](Week06_Image_Restoration/) |
+| **Week 07** | **Image Segmentation** | Grassfire 라벨링 알고리즘, 동공 경계선(Edge) 추출, 무게중심 및 바운딩 박스 시각화 | [📂 Go](Week07_Image_Segmentation_&_Feature_Extraction/) |
 
 *(강의 진행에 따라 매주 업데이트됩니다.)*
 
