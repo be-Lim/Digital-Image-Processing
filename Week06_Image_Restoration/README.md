@@ -74,7 +74,7 @@ Out[i * W + j] = Median(temp, WSize);       // 중앙값 (S/2 인덱스)
 | :--- | :--- | :--- | :--- | :--- |
 | ![LENNA_impulse.bmp](https://github.com/user-attachments/files/27119325/LENNA_impulse.bmp) | ![gaussian.bmp](https://github.com/user-attachments/files/27119339/gaussian.bmp) | ![median_3.bmp](https://github.com/user-attachments/files/27119352/median_3.bmp) | ![max_3.bmp](https://github.com/user-attachments/files/27119363/max_3.bmp) | ![min_3.bmp](https://github.com/user-attachments/files/27119371/min_3.bmp) |
 
-### [Test 3] 필터 사이즈 증가에 따른 Median 결과 비교
+### [Test 3] Median 필터 사이즈 증가에 따른 결과 비교
 
 - 사이즈가 커질수록 굵은 노이즈도 제거 가능하지만, 영상의 디테일(Edge) 손실이 발생합니다.
 
