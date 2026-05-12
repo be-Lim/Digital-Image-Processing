@@ -4,6 +4,19 @@
 #include <Windows.h>
 #include <math.h>
 
+/*
+- 8 bit Gray Scale (256 level) -
+14 bytes
+40 bytes
+1024 bytes (팔레트 정보)
+픽셀정보 (1픽셀 = 8 bits (1 byte))
+
+- 24 bit True Color (약 1600만 컬러) -
+14 bytes
+40 bytes
+픽셀정보 (1픽셀 = 24 bit (3bytes))
+*/
+
 void SaveBMPFile(BITMAPFILEHEADER hf, BITMAPINFOHEADER hInfo, RGBQUAD* hRGB, int W, int H, BYTE* Output, const char* FileName)
 {
 	FILE* fp = fopen(FileName, "wb");
@@ -12,7 +25,7 @@ void SaveBMPFile(BITMAPFILEHEADER hf, BITMAPINFOHEADER hInfo, RGBQUAD* hRGB, int
 		fwrite(&hInfo, sizeof(BYTE), sizeof(BITMAPINFOHEADER), fp);
 		fwrite(Output, sizeof(BYTE), W * H * 3, fp);
 	}
-	else if (hInfo.biBitCount == 8) {
+	else {
 		fwrite(&hf, sizeof(BYTE), sizeof(BITMAPFILEHEADER), fp);
 		fwrite(&hInfo, sizeof(BYTE), sizeof(BITMAPINFOHEADER), fp);
 		fwrite(hRGB, sizeof(RGBQUAD), 256, fp);
@@ -85,7 +98,7 @@ void DrawHorizontalBands(BYTE* Img, int W, int H)
 	}
 }
 
-void DrawGradation_B_R(BYTE* Img, int W, int H, int a1, int a2, char VH)
+void DrawGradation_B_Y(BYTE* Img, int W, int H, int a1, int a2, char VH)
 {
 	double wt;
 	if (VH == 'v') {
@@ -93,7 +106,7 @@ void DrawGradation_B_R(BYTE* Img, int W, int H, int a1, int a2, char VH)
 			for (int i = 0; i < H; i++) {
 				wt = i / (double)(H - 1);
 				Img[i * W * 3 + a * 3] = (BYTE)(255 * (1.0 - wt));	// Blue
-				Img[i * W * 3 + a * 3 + 1] = (BYTE)(255 * (1.0 - wt));	// Green
+				Img[i * W * 3 + a * 3 + 1] = (BYTE)(255 * wt);	// Green
 				Img[i * W * 3 + a * 3 + 2] = (BYTE)(255 * wt);	// Red
 			}
 		}
@@ -103,6 +116,33 @@ void DrawGradation_B_R(BYTE* Img, int W, int H, int a1, int a2, char VH)
 			for (int i = 0; i < W; i++) {
 				wt = i / (double)(W - 1);
 				Img[a * W * 3 + i * 3] = (BYTE)(255 * (1.0 - wt));	// Blue
+				Img[a * W * 3 + i * 3 + 1] = (BYTE)(255 * wt);	// Green
+				Img[a * W * 3 + i * 3 + 2] = (BYTE)(255 * wt);	// Red
+			}
+		}
+	}
+	else
+		return;
+}
+
+void DrawGradation_G_M(BYTE* Img, int W, int H, int a1, int a2, char VH)
+{
+	double wt;
+	if (VH == 'v') {
+		for (int a = a1; a < a2; a++) {
+			for (int i = 0; i < H; i++) {
+				wt = i / (double)(H - 1);
+				Img[i * W * 3 + a * 3] = (BYTE)(255 * wt);	// Blue
+				Img[i * W * 3 + a * 3 + 1] = (BYTE)(255 * (1.0 - wt));	// Green
+				Img[i * W * 3 + a * 3 + 2] = (BYTE)(255 * wt);	// Red
+			}
+		}
+	}
+	else if (VH == 'h') {
+		for (int a = a1; a < a2; a++) {
+			for (int i = 0; i < W; i++) {
+				wt = i / (double)(W - 1);
+				Img[a * W * 3 + i * 3] = (BYTE)(255 * wt);	// Blue
 				Img[a * W * 3 + i * 3 + 1] = (BYTE)(255 * (1.0 - wt));	// Green
 				Img[a * W * 3 + i * 3 + 2] = (BYTE)(255 * wt);	// Red
 			}
@@ -112,6 +152,32 @@ void DrawGradation_B_R(BYTE* Img, int W, int H, int a1, int a2, char VH)
 		return;
 }
 
+void DrawGradation_R_C(BYTE* Img, int W, int H, int a1, int a2, char VH)
+{
+	double wt;
+	if (VH == 'v') {
+		for (int a = a1; a < a2; a++) {
+			for (int i = 0; i < H; i++) {
+				wt = i / (double)(H - 1);
+				Img[i * W * 3 + a * 3] = (BYTE)(255 * wt);	// Blue
+				Img[i * W * 3 + a * 3 + 1] = (BYTE)(255 * wt);	// Green
+				Img[i * W * 3 + a * 3 + 2] = (BYTE)(255 * (1.0 - wt));	// Red
+			}
+		}
+	}
+	else if (VH == 'h') {
+		for (int a = a1; a < a2; a++) {
+			for (int i = 0; i < W; i++) {
+				wt = i / (double)(W - 1);
+				Img[a * W * 3 + i * 3] = (BYTE)(255 * wt);	// Blue
+				Img[a * W * 3 + i * 3 + 1] = (BYTE)(255 * wt);	// Green
+				Img[a * W * 3 + i * 3 + 2] = (BYTE)(255 * (1.0 - wt));	// Red
+			}
+		}
+	}
+	else
+		return;
+}
 int main()
 {
 	BITMAPFILEHEADER hf; // 14바이트
@@ -162,9 +228,11 @@ int main()
 	DrawHorizontalBands(Output, W, H);
 	SaveBMPFile(hf, hInfo, hRGB, W, H, Output, "output_horizontal_band.bmp");
 
-	// 그라데이션 만들기 (B ~ R)
+	// 그라데이션 만들기
 	CopyBMPFile(Image, Output, W, H);
-	DrawGradation_B_R(Output, W, H, 120, 360, 'h');
+	DrawGradation_B_Y(Output, W, H, 0, 160, 'h');
+	DrawGradation_G_M(Output, W, H, 160, 320, 'h');
+	DrawGradation_R_C(Output, W, H, 320, 480, 'h');
 	SaveBMPFile(hf, hInfo, hRGB, W, H, Output, "output_gradation.bmp");
 
 	free(Image);
