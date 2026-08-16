@@ -23,6 +23,8 @@
 | **Week 07** | **Image Segmentation** | Grassfire 라벨링 알고리즘, 동공 경계선(Edge) 추출, 무게중심 및 바운딩 박스 시각화 | [📂 Go](Week07_Image_Segmentation_&_Feature_Extraction/) |
 | **Week 09** | **Geometric Transformation** | 역방향 사상(Reverse Mapping) 기반 공간 변환 및 최근접 이웃 보간법 구현 | [📂 Go](Week09_Geometric_Transformation_&_Interpolation/) |
 | **Week 10** | **Color Models & True-color Processing** | 트루컬러(24bit) BMP 구조 분석, 컬러 모델(RGB/YCbCr/HSI) 이론 및 채널 분리, 그라데이션 구현 | [📂 Go](Week10_Color_Models_&_True-color_Processing/) |
+| **Week 11** | **Color Processing & Color-based Segmentation** | 의사 컬러·색 변환 이론, RGB→YCbCr 변환, 적색/피부색 마스킹, 연결요소 라벨링과 얼굴 바운딩 박스 | [📂 Go](Week11_Color_Processing_&_Color_Based_Segmentation/) |
+| **Week 12** | **Morphological Image Processing** | 침식·팽창·열림·닫힘, 형태학적 경계와 기울기, Zhang-Suen 골격화, 끝점·분기점 추출 | [📂 Go](Week12_Morphological_Image_Processing/) |
 
 *(강의 진행에 따라 매주 업데이트됩니다.)*
 
