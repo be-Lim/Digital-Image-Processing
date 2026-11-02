@@ -214,7 +214,7 @@ $$
 DCT 자체는 이상적인 정밀도에서 역변환할 수 있는 연산입니다. JPEG의 핵심 손실은 DCT 계수를 양자화할 때 발생합니다.
 
 $$
-F_Q(u,v)=\operatorname{round}\left(\frac{F(u,v)}{Q(u,v)}\right)
+F_Q(u,v)=round(\frac{F(u,v)}{Q(u,v)})
 $$
 
 복원 과정에서는 다음과 같이 역양자화합니다.
